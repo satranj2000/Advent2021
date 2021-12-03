@@ -182,6 +182,7 @@ func Puzzle6() int {
 				includeItems[j] = false
 			}
 		}
+
 	}
 
 	return int(oxygenrate) * int(co2scrubrate)
