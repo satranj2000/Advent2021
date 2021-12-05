@@ -8,5 +8,7 @@ func main() {
 	//	println(Puzzle4())
 
 	//println(Puzzle5())
-	println(Puzzle6())
+	//println(Puzzle6())
+	//println(Puzzle7())
+	println(Puzzle8())
 }
