@@ -11,5 +11,6 @@ func main() {
 	//println(Puzzle6())
 	//println(Puzzle7())
 	//println(Puzzle8())
-	println(Puzzle9())
+	//println(Puzzle9())
+	println(Puzzle10())
 }
