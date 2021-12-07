@@ -5,7 +5,7 @@ import "testing"
 func TestReadinputfile6(t *testing.T) {
 	expectedoutputs := []int{3, 4, 3, 1, 2}
 
-	output := readInput6File("input6_sample1.text")
+	output := readInput6File("input6_sample1.txt")
 
 	for i := 0; i < len(expectedoutputs); i++ {
 		if output[i] != expectedoutputs[i] {
