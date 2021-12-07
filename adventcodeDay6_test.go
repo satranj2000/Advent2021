@@ -27,3 +27,15 @@ func TestPuzzle11_2(t *testing.T) {
 		t.Errorf("Expected value of 5934, got %d", res)
 	}
 }
+
+func TestPuzzle11_v2(t *testing.T) {
+	inVals := []int{18, 80}
+	results := []int{26, 5934}
+
+	for i := 0; i < 2; i++ {
+		res := Puzzle11_v2("input6_sample1.txt", inVals[i])
+		if res != results[i] {
+			t.Errorf("Expected value of %d, got %d", results[i], res)
+		}
+	}
+}

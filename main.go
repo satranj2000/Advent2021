@@ -13,5 +13,7 @@ func main() {
 	//println(Puzzle8())
 	//println(Puzzle9())
 	//println(Puzzle10())
-	println(Puzzle11("input6.txt", 80))
+	println(Puzzle11_v2("input6.txt", 80))
+	println(Puzzle11_v2("input6.txt", 256))
+
 }
