@@ -34,3 +34,24 @@ func TestReadfileDay8(t *testing.T) {
 	}
 
 }
+
+func TestReadfileDay9(t *testing.T) {
+
+	expected := [][]int{
+		{2, 1, 9, 9, 9, 4, 3, 2, 1, 0},
+		{3, 9, 8, 7, 8, 9, 4, 9, 2, 1},
+		{9, 8, 5, 6, 7, 8, 9, 8, 9, 2},
+		{8, 7, 6, 7, 8, 9, 6, 7, 8, 9},
+		{9, 8, 9, 9, 9, 6, 5, 6, 7, 8},
+	}
+	mat := readfileday9("inputs/input9_sample1.txt")
+
+	for i := 0; i < len(mat); i++ {
+		for j := 0; j < len(mat[0]); j++ {
+			if mat[i][j] != expected[i][j] {
+				t.Errorf("Expected %v, got %v", mat[i], expected[i])
+			}
+		}
+	}
+
+}

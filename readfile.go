@@ -56,3 +56,29 @@ func readfileday8(filename string) ([]string, []string) {
 
 	return leftside, rightside
 }
+
+func readfileday9(filename string) [][]int {
+	file, err := os.Open(filename)
+
+	if err != nil {
+		log.Fatalf("failed to open")
+
+	}
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+	scanner.Split(bufio.ScanLines)
+
+	matrix := make([][]int, 0, 100)
+	for scanner.Scan() {
+		line := make([]int, 0, 100)
+		val := scanner.Text()
+
+		for _, v := range val {
+			intval, _ := strconv.Atoi(string(v))
+			line = append(line, intval)
+		}
+		matrix = append(matrix, line)
+	}
+	return matrix
+}
