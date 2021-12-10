@@ -82,3 +82,25 @@ func readfileday9(filename string) [][]int {
 	}
 	return matrix
 }
+
+// assumption is that file contains less than 100 rows
+func readfile2(filename string) []string {
+	file, err := os.Open(filename)
+
+	if err != nil {
+		log.Fatalf("failed to open")
+
+	}
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+	scanner.Split(bufio.ScanLines)
+
+	strArr := make([]string, 0, 100)
+	for scanner.Scan() {
+		line := scanner.Text()
+
+		strArr = append(strArr, line)
+	}
+	return strArr
+}
