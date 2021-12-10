@@ -21,4 +21,6 @@ func main() {
 	println(Puzzle15("input8.txt"))
 	println(Puzzle16("input8.txt"))
 	println(PuzzleDay9Part1("inputs/input9.txt"))
+	println(PuzzleDay9Part2("inputs/input9.txt"))
+
 }
