@@ -13,3 +13,24 @@ func TestReadfile(t *testing.T) {
 		}
 	}
 }
+
+func TestReadfileDay8(t *testing.T) {
+
+	expected_lside := []string{"be cfbegad cbdgef fgaecd cgeb fdcge agebfd fecdb fabcd edb ",
+		"edbfga begcd cbg gc gcadebf fbgde acbgfd abcde gfcbed gfec "}
+
+	expected_rside := []string{" fdgacbe cefdb cefbgd gcbe",
+		" fcgedb cgb dgebacf gc"}
+
+	lside, rside := readfileday8("input8_sample2.txt")
+
+	for i := 0; i < len(expected_lside); i++ {
+		if expected_lside[i] != lside[i] {
+			t.Errorf("Expected left side %s, got %s", expected_lside[i], lside[i])
+		}
+		if expected_rside[i] != rside[i] {
+			t.Errorf("Expected right side %s, got %s", expected_rside[i], rside[i])
+		}
+	}
+
+}
