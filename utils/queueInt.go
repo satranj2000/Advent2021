@@ -1,25 +1,25 @@
-package main
+package utils
 
 import (
 	"errors"
 	"log"
 )
 
-type Queue struct {
-	items       []string
+type QueueInt struct {
+	items       []int
 	bInitialize bool
 	maxsz       int
 	currmax     int
 	currmin     int
 }
 
-func (q *Queue) Enqueue(d string) error {
+func (q *QueueInt) Enqueue(d int) error {
 	if !q.bInitialize {
 		q.bInitialize = true
 		q.maxsz = 16384
 		q.currmax = 0
 		q.currmin = 0
-		q.items = make([]string, q.maxsz)
+		q.items = make([]int, q.maxsz)
 	}
 	if q.currmax > q.maxsz {
 		log.Println("Cannot allocate more than 16384 values in the queue")
@@ -30,26 +30,15 @@ func (q *Queue) Enqueue(d string) error {
 	return nil
 }
 
-func (q *Queue) Dequeue() (string, error) {
+func (q *QueueInt) Dequeue() (int, error) {
 	if q.IsEmpty() {
-		return "", errors.New("empty queue")
+		return -1, errors.New("empty queue")
 	}
 	val := q.items[q.currmin]
 	q.currmin++
 	return val, nil
 }
 
-func (q *Queue) IsPresent(val string) bool {
-	i := 0
-	for i < q.currmax {
-		if val == q.items[i] {
-			return true
-		}
-		i++
-	}
-	return false
-}
-
-func (q *Queue) IsEmpty() bool {
+func (q *QueueInt) IsEmpty() bool {
 	return (q.currmax <= q.currmin)
 }
