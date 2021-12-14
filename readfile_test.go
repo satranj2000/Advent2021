@@ -55,3 +55,51 @@ func TestReadfileDay9(t *testing.T) {
 	}
 
 }
+
+func TestReadfileDay13(t *testing.T) {
+
+	expectedArr := [][]int{
+		{6, 10},
+		{0, 14},
+		{9, 10},
+		{0, 3},
+		{10, 4},
+		{4, 11},
+		{6, 0},
+		{6, 12},
+		{4, 1},
+		{0, 13},
+		{10, 12},
+		{3, 4},
+		{3, 0},
+		{8, 4},
+		{1, 10},
+		{2, 14},
+		{8, 10},
+		{9, 0},
+	}
+
+	expectedStr := []string{
+		"y,7", "x,5",
+	}
+
+	out1, out2, outx, outy := readfileday13("inputs/input13_sample1.txt")
+
+	if !compareMatrix(expectedArr, out1) {
+		t.Error("return array of ints did not match")
+	}
+
+	for i := 0; i < 2; i++ {
+		if out2[i] != expectedStr[i] {
+			t.Errorf("wrong values ")
+		}
+	}
+
+	if outx != 10 {
+		t.Errorf("Expected 10 got %v as max x value", outx)
+	}
+
+	if outy != 14 {
+		t.Errorf("Expected 14 got %v as max y value", outy)
+	}
+}

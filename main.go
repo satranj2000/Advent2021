@@ -1,5 +1,9 @@
 package main
 
+import (
+	"fmt"
+)
+
 func main() {
 	//Puzzle1() // 1655
 	//depths := Readinputdata()
@@ -28,4 +32,16 @@ func main() {
 
 	println(PuzzleDay11Part1("inputs/input11.txt", 100))
 	println(PuzzleDay11Part2("inputs/input11.txt"))
+
+	println(PuzzleDay13Part1("inputs/input13.txt", 1))
+
+	out := PuzzleDay13Part2("inputs/input13.txt", 12)
+
+	for i := 0; i < len(out); i++ {
+		for j := 0; j < len(out[i]); j++ {
+			fmt.Print(out[i][j])
+		}
+		fmt.Println()
+	}
+
 }
