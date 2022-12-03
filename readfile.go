@@ -150,3 +150,33 @@ func readfileday13(filename string) ([][]int, []string, int, int) {
 	}
 	return posArr, foldArr, maxx, maxy
 }
+
+func readfileday14(filename string) (string, [][]string) {
+	file, err := os.Open(filename)
+
+	if err != nil {
+		log.Fatalf("failed to open")
+
+	}
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+	scanner.Split(bufio.ScanLines)
+	scanner.Scan()
+	firstline := scanner.Text()
+	scanner.Scan()
+	scanner.Text() // empty 2nd line .. ignore.
+
+	insertpos := make([][]string, 0, 1000)
+	for scanner.Scan() {
+		val := scanner.Text()
+		var lside, rside string
+		fmt.Sscanf(val, "%s -> %s", &lside, &rside)
+		temp := make([]string, 2)
+		temp[0] = lside
+		temp[1] = rside
+		insertpos = append(insertpos, temp)
+	}
+
+	return firstline, insertpos
+}

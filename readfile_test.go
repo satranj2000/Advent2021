@@ -103,3 +103,26 @@ func TestReadfileDay13(t *testing.T) {
 		t.Errorf("Expected 14 got %v as max y value", outy)
 	}
 }
+
+func TestReadfileDay14(t *testing.T) {
+
+	expectedstr := "NNCB"
+	str, moves := readfileday14("inputs/input14_sample1.txt")
+
+	expectedmoves := [][]string{
+		{"CH", "B"},
+		{"HH", "N"},
+		{"CB", "H"},
+		{"NH", "C"},
+	}
+	if str != expectedstr {
+		t.Errorf("expected NNCB but got %v", str)
+	}
+
+	for i := 0; i < len(expectedmoves); i++ {
+		if expectedmoves[i][0] != moves[i][0] || expectedmoves[i][1] != moves[i][1] {
+			t.Errorf("Expected %v, got %v", expectedmoves[i], moves[i])
+		}
+	}
+
+}
